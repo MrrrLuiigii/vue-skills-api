@@ -1,0 +1,8 @@
+auth0:
+  audience: https://vue-skills-api
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-xmvh3rg1.auth0.com/
