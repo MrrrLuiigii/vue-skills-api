@@ -5,7 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.nicky.vueskills.dal.SkillContextMySQL;
 import com.nicky.vueskills.models.Skill;
 import com.nicky.vueskills.models.SkillCollection;
+import com.nicky.vueskills.models.User;
 import com.nicky.vueskills.websocketserver.ActionType;
+import com.nicky.vueskills.websocketserver.Collection.UserCollection;
 import com.nicky.vueskills.websocketserver.WsReturnMessage;
 import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONObject;
@@ -62,7 +64,11 @@ public class SkillExecutor implements IExecutor
         skillCollection = skillContextMySQL.GetSkills();
         wsReturnMessage.setAction("Get");
         wsReturnMessage.setContent(skillCollection);
-        session.getRemote().sendString(gson.toJson(wsReturnMessage));
+
+        for (User user : UserCollection.getConnectedUsers())
+        {
+            user.getSession().getRemote().sendString(gson.toJson(wsReturnMessage));
+        }
     }
 
     @Override

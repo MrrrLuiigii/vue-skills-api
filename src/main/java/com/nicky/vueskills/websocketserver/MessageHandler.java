@@ -1,5 +1,6 @@
 package com.nicky.vueskills.websocketserver;
 
+import com.nicky.vueskills.websocketserver.executors.RegisterExecutor;
 import com.nicky.vueskills.websocketserver.executors.SkillExecutor;
 import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONObject;
@@ -26,6 +27,11 @@ public class MessageHandler
             case "GetById":
                 executorService.submit(new SkillExecutor(ActionType.GetById, message, session));
                 break;
+            case "Register":
+                executorService.submit(new RegisterExecutor(null, message, session));
+                break;
         }
+
+        System.out.println(message.toString());
     }
 }

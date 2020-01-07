@@ -2,8 +2,8 @@ package com.nicky.vueskills.websocketserver;
 
 public class WsReturnMessage
 {
-    private Object content;
-    private String action;
+    private Object Content;
+    private String Action;
 
 
 
@@ -13,21 +13,21 @@ public class WsReturnMessage
 
     public Object getContent()
     {
-        return content;
+        return Content;
     }
 
     public void setContent(Object content)
     {
-        this.content = content;
+        this.Content = content;
     }
 
     public String getAction()
     {
-        return action;
+        return Action;
     }
 
     public void setAction(String action)
     {
-        this.action = action;
+        this.Action = action;
     }
 }
