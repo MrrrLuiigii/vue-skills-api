@@ -1,5 +1,6 @@
 package com.nicky.vueskills.websocketserver.executors;
 
+import com.google.gson.GsonBuilder;
 import com.nicky.vueskills.websocketserver.Collection.UserCollection;
 import com.nicky.vueskills.models.User;
 import com.google.gson.Gson;
@@ -22,11 +23,13 @@ public class RegisterExecutor implements IExecutor
         this.session = session;
     }
 
-    private Gson gson = new Gson();
-
     @Override
     public void Execute(ActionType actionType, JSONObject message, Session session)
     {
+        GsonBuilder gs = new GsonBuilder();
+        gs.serializeNulls();
+        Gson gson = gs.create();
+
         User user = gson.fromJson(message.toString(), User.class);
         user.setSession(session);
 
