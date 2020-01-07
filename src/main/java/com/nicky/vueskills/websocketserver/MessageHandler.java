@@ -31,7 +31,5 @@ public class MessageHandler
                 executorService.submit(new RegisterExecutor(null, message, session));
                 break;
         }
-
-        System.out.println(message.toString());
     }
 }

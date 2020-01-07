@@ -27,14 +27,12 @@ public class RegisterExecutor implements IExecutor
     @Override
     public void Execute(ActionType actionType, JSONObject message, Session session)
     {
-//        String json = message.getJSONObject("Content").toString();
         User user = gson.fromJson(message.toString(), User.class);
         user.setSession(session);
 
         if(UserCollection.CheckNotRegistered(user))
         {
             UserCollection.getConnectedUsers().add(user);
-            System.out.println(UserCollection.getConnectedUsers().size());
         }
     }
 
