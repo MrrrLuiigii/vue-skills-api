@@ -1,8 +1,10 @@
 auth0:
-  audience: https://vue-skills-api
+#  audience: https://vue-skills-api
+  audience: https://EternityWarsResourceServer
 spring:
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://dev-xmvh3rg1.auth0.com/
+#          issuer-uri: https://dev-xmvh3rg1.auth0.com/
+          issuer-uri: https://dev-eternitywars.eu.auth0.com/

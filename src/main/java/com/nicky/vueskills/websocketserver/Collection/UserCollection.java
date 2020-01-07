@@ -38,7 +38,8 @@ public class UserCollection
 
     public static User getUserBySession(Session session)
     {
-        for (User user : connectedUsers) {
+        for (User user : connectedUsers)
+        {
             if (user.getSession() == session)
             {
                 return user;
@@ -46,5 +47,16 @@ public class UserCollection
         }
 
         return null;
+    }
+
+    public static void updateSession(User user, Session session)
+    {
+        for (User u : connectedUsers)
+        {
+            if (user.getName() == u.getName())
+            {
+                u.setSession(session);
+            }
+        }
     }
 }

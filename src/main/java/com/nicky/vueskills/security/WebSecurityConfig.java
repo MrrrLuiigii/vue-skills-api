@@ -35,7 +35,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
     }
 
     @Bean
-    JwtDecoder jwtDecoder() {
+    JwtDecoder jwtDecoder()
+    {
         /*
         By default, Spring Security does not validate the "aud" claim of the token, to ensure that this token is
         indeed intended for our app. Adding our own validator is easy to do:

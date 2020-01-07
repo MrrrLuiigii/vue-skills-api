@@ -26,11 +26,11 @@ public class RegisterExecutor implements IExecutor
     @Override
     public void Execute(ActionType actionType, JSONObject message, Session session)
     {
-        GsonBuilder gs = new GsonBuilder();
-        gs.serializeNulls();
-        Gson gson = gs.create();
+        JSONObject content = message.getJSONObject("Content");
+        String name = content.getString("name");
 
-        User user = gson.fromJson(message.toString(), User.class);
+        User user = new User();
+        user.setName(name);
         user.setSession(session);
 
         if(UserCollection.CheckNotRegistered(user))
