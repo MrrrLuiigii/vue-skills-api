@@ -6,7 +6,7 @@ import com.nicky.vueskills.models.SkillCollection;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/api/public/skills")
+@RequestMapping(value = "/api/private/skills")
 public class SkillsController
 {
     private SkillContextMySQL skillContextMySQL = new SkillContextMySQL();
