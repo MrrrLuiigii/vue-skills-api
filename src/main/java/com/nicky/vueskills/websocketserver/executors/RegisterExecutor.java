@@ -1,9 +1,7 @@
 package com.nicky.vueskills.websocketserver.executors;
 
-import com.google.gson.GsonBuilder;
 import com.nicky.vueskills.websocketserver.Collection.UserCollection;
 import com.nicky.vueskills.models.User;
-import com.google.gson.Gson;
 import com.nicky.vueskills.websocketserver.ActionType;
 import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONObject;
